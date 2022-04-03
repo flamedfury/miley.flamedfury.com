@@ -1,210 +1,123 @@
-/* fury base css */
-/* by fLaMEd <flamedfury.com> */
-
-/* global */
-:root {
-  /* typography */
-  --serif: Georgia, "Times New Roman", Times, serif;
-  --sans: "Open Sans", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
-    "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica,
-    "Helvetica Neue", sans-serif;
-  --mono: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-
-  /* body font size set to 16px as 'root em' */
-  --base-fontsize: 1rem;
-
-  /* minor third scale progression - see https://type-scale.com/ */
-  --header-scale: 1.5;
-
-  /* Line height is set to the "golden ratio" for optimal legibility */
-  --line-height: 1.618;
-
-  /* colours */
-  --bg: #291a2e;
-  --bg-accent: #171321;
-  --text: #bfbfbf;
-  --text-light: #f3f3f3;
-  --border: #666;
-  --accent: #954252;
-  --accent-light: #e2b15d;
-  --code: #f06292;
-  --preformatted: #ccc;
-  --disabled: #111;
-}
-
-/* make sure we look good on small screens */
-@media screen and (max-width: 100%) {
-  header,
-  main,
-  footer {
-    width: 996px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  nav ul li {
-    float: none;
-  }
-}
-
-/* main body formatting */
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+* {
   box-sizing: border-box;
+  margin: 0;
 }
 
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
-}
+/* Layout */
 
 body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: var(--serif);
-  font-size: var(--base-fontsize);
-  line-height: var(--line-height);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 5vh clamp(1rem, 5vw, 3rem) 1rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #222;
+}
+
+body>* {
+  --layout-spacing: max(8vh, 3rem);
+  --max-width: 70ch;
+  width: min(100%, var(--max-width));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+nav ul li {
+  padding: 0.5rem 1rem;
+}
+
+nav [aria-current="page"] {
+  font-weight: bold;
 }
 
 header,
 main,
-footer {
-  float: center;
-  width: 100%;
-  max-width: 996px;
-  margin: 0 auto;
-  margin-bottom: 1rem;
+main>*+* {
+  margin-top: var(--layout-spacing);
 }
 
-main {
-  background-color: var(--bg-accent);
-  padding: 2rem;
+body>footer {
+  margin-top: auto;
+  padding-top: var(--layout-spacing);
 }
 
-footer {
-  border-top: 1px solid var(--border);
-  margin-top: 6em;
-  padding: 2em;
-  text-align: center;
+body>footer div {
+  border-top: 1px solid #ccc;
+  padding-top: 0.5em;
+  font-size: 0.9rem;
+  color: #767676;
 }
 
-/* typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--sans);
+article *+* {
+  margin-top: 1em;
 }
 
-footer p {
-  color: var(--text-light);
-  font-size: 0.75em;
+/* Typography */
+:is(h1, h2, h3) {
+  line-height: 1.2;
 }
 
-strong {
-  color: var(--accent-light);
+:is(h1, h2) {
+  max-width: 40ch;
 }
 
-/*
-    elements
-*/
+:is(h2, h3):not(:first-child) {
+  margin-top: 2em;
+}
 
 a {
-  color: var(--accent);
-  text-decoration: none;
+  color: navy;
+  text-underline-offset: 0.08em;
 }
 
-a:hover,
-a:focus a:active {
-  text-decoration: underline;
+a:focus {
+  outline: 1px solid currentColor;
+  outline-offset: 0.2em;
 }
+
+/* Media */
+
+article img {
+  display: block;
+  width: 100%;
+  min-height: 20rem;
+  max-height: 40vh;
+  object-fit: cover;
+  margin: 2rem auto;
+}
+
+@supports (aspect-ratio: 1) {
+  article img {
+    max-height: unset;
+    aspect-ratio: 3/2;
+  }
+}
+
+/* Supporting Content */
+
+/* code:not([class*="language"]) {
+  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+  font-size: 1.75ex;
+  color: #444;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding-right: 0.15em;
+  padding-left: 0.15em;
+} */
 
 blockquote {
-  margin-left: 2em;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  padding: 0.4rem 0.8rem;
-  border-left: 0.35rem solid var(--accent);
-  color: var(--text);
-  font-style: italic;
-}
-
-cite {
-  font-style: italic;
-  font-size: 0.8em;
-}
-
-/* a better looking default horizontal rule */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid var(--border);
-  margin: 1em 0;
-  padding: 0;
-}
-
-/*
-    images
-*/
-
-/* scales the header image as window is resized */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.header-image {
-  max-width: 100%;
-  padding-top: 60px;
-  padding-bottom: 20px;
-  height: auto;
-}
-
-/*
-    navigation
-*/
-nav {
-  font-family: var(--sans);
-  font-size: 1.4rem;
-  text-align: center;
-}
-
-nav ul {
-  display: inline-block;
-  text-transform: uppercase;
-  text-align: left;
-  list-style-type: none;
-  margin: 0;
-  padding: 52;
-  overflow: hidden;
-}
-
-nav li {
-  float: left;
-}
-
-nav li a {
-  color: var(--accent);
-  display: block;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* sets active link on active page */
-body.home .nav-home a,
-body.miley .nav-miley a,
-body.media .nav-media a,
-body.gallery .nav-gallery a,
-body.online .nav-online a,
-body.about .nav-about a {
-  color: var(--accent-light);
+  margin: 2rem 0;
+  padding: 0.5em 1rem;
+  border-left: 3px solid rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0 0.25rem 0.25rem 0;
 }
