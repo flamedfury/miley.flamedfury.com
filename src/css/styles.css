@@ -80,20 +80,20 @@ a {
   text-underline-offset: 0.08em;
 }
 
-a:focus {
+/* a:focus {
   outline: 1px solid currentColor;
   outline-offset: 0.2em;
-}
+} */
 
 /* Media */
 
 article img {
   display: block;
-  width: 100%;
+  max-width: 100%;
   min-height: 20rem;
   max-height: 40vh;
   object-fit: cover;
-  margin: 2rem auto;
+  /* margin: 2rem auto; */
 }
 
 @supports (aspect-ratio: 1) {
@@ -120,4 +120,14 @@ blockquote {
   border-left: 3px solid rgba(0, 0, 0, 0.35);
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 0 0.25rem 0.25rem 0;
+}
+
+/* gallery support */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.gallery-item {
+  padding: 8px;
 }

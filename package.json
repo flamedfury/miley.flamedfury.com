@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/flamedfury/miley.flamedfury.com#readme",
   "dependencies": {
-    "@11ty/eleventy": "^1.0.0"
+    "@11ty/eleventy": "^1.0.0",
+    "fast-glob": "^3.2.11"
   }
 }
