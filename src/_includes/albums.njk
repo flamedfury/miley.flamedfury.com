@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}{% if page.url != '/' %} :: {{ meta.siteName }}{% endif %}</title>
+  <link rel="stylesheet" href="{{ '/css/albums.css' | url }}">
+</head>
+
+<body>
+
+  <header>
+    <div class="hero__content">
+      {% if svg_title %}
+      <h1 class="svg-title" aria-label="{{ title }}"><img src="{{ svg_title }}"></h1>
+      {% else %}
+      <h1>{{ title }}</h1>
+      {% endif %}
+    </div>
+    <img src="{{ hero }}" alt="{{ title }}" />
+  </header>
+
+  <main>
+    <article>
+      <h1>{{ title }}</h1>
+
+      {{ content | safe }}
+
+      <p><a href="/albums/">Back to albums page.</a></p>
+    </article>
+  </main>
+
+
+  <footer>
+    <div>
+      <p>&copy; {% year %} {{ meta.siteName }}{% if meta.authorName %} • {{ meta.authorName }}{% endif %}</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
