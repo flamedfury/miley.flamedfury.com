@@ -1,6 +1,5 @@
 ---
 title: "Photo Gallery"
-author: "fLaMEd"
 date: "2021-07-01"
 ---
 

@@ -1,8 +1,6 @@
 ---
 title: "About"
-author: "fLaMEd"
 date: "2021-07-01"
-layout: page.njk
 ---
 
 Nothing Breaks Like a Heart is an unofficial fansite, and has no affiliation with Miley Cyrus. This site has been handcrafted by a fan for fans.
