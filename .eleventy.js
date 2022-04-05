@@ -12,11 +12,6 @@ module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
-	//Create collection of gallery images
-	eleventyConfig.addCollection('gallery', function (collection) {
-		return galleryImages;
-	});
-
 	return {
 		dir: {
 			// enable passthrough file copy for static assets.

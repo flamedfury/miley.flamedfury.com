@@ -19,4 +19,5 @@ Nothing Breaks Like a Heart is about respecting Miley's privacy and does not use
 Is there something on the site that you would like to improve? Please make a pull request over on the websites [Github repository](https://github.com/flamedfury/miley.flamedfury.com).
 
 ## Credits
-* 11ty configuration [smol-11ty-starter](https://github.com/5t3ph/smol-11ty-starter/)
+* 11ty configuration [5t3ph](https://github.com/5t3ph/smol-11ty-starter/)
+* Gallery configuration [Tania Rascia](https://www.taniarascia.com/how-to-build-a-responsive-image-gallery-with-flexbox/)
