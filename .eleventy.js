@@ -1,9 +1,3 @@
-// Import fast-glob package
-const fg = require('fast-glob');
-
-// Run search for images in /gallery
-const galleryImages = fg.sync(['**/gallery/*', 'img']);
-
 module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/css");
 	eleventyConfig.addPassthroughCopy("src/img");
@@ -14,6 +8,11 @@ module.exports = function (eleventyConfig) {
 
 	return {
 		dir: {
+			// templates
+			markdownTemplateEngine: "njk",
+			htmlTemplateEngine: "njk",
+			dataTemplateEngine: "njk",
+
 			// enable passthrough file copy for static assets.
 			passthroughFileCopy: true,
 
